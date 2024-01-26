@@ -1,0 +1,46 @@
+.box {
+    /* Size */
+    width: 3em;
+    min-height: 3em;
+    padding: 2px;
+    /* Border */
+    border-radius: 12px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    /* Centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Text */
+    color: white;
+    font-size: 1.7em;
+    font-weight: bold;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+  
+}
+
+.red {
+    background-color: red;
+}
+
+.yellow{
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
+
+.down {
+    background-color: red;
+    background-image: url('../assets/downArrow.svg');
+    background-size: cover;
+}
+
+.up {
+    background-color: red;
+    background-image: url('../assets/upArrow.svg');
+    background-size: cover;
+}

@@ -1,10 +1,17 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+import './css/App.css'
+import { Popup } from './components/popup'
+import { HowTo, HowToIcon } from './components/howTo'
+import { StatsBox, StatsBoxIcon } from './components/statsBox'
+import { ResultBar } from './components/resultBar'
+import { HealthBar } from './components/healthBar'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [showHowTo, setShowHowTo] = useState(false)
+  const [showStats, setShowStats] = useState(false)
 
   return (
     <>
@@ -28,8 +35,17 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <HealthBar health={count}/>
+      <ResultBar categories={data} />
+      <HowToIcon setShow={setShowHowTo} />
+      <StatsBoxIcon setShow={setShowStats} />
+      <Popup show={showStats} setShow={setShowStats} ><StatsBox /></Popup>
+      <Popup show={showHowTo} setShow={setShowHowTo}><HowTo /></Popup>
     </>
   )
 }
 
 export default App
+
+
+const data = [{ text: "Hi", type: "yellow" }, {text: "Hi", type: "down"}, {text: "Hi", type: "red"}, {text: "Hi", type: "green"}, {text: "Hi", type: "up"}]

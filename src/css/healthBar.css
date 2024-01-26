@@ -1,0 +1,18 @@
+.health-bar{
+    display: flex;
+    justify-content: center;
+}
+
+.heart{
+    height: 1rem;
+    width: 1rem;
+    background-image: url("../assets/heart.svg");
+    background-size: cover;
+}
+
+.heart-empty{
+    height: 1rem;
+    width: 1rem;
+    background-image: url("../assets/emptyHeart.svg");
+    background-size: cover;
+}
