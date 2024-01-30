@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Popup } from './components/popup'
 import { HowTo, HowToIcon } from './components/howTo'
 import { StatsBox, StatsBoxIcon } from './components/statsBox'
-import { ResultBar } from './components/resultBar'
+import { ResultBar, Response } from './components/resultBar'
 import { HealthBar } from './components/healthBar'
 import { Menu } from './components/menu'
 import { InputBar } from './components/inputBar';
@@ -14,15 +14,16 @@ function App() {
   const [count, setCount] = useState(10)
   const [showHowTo, setShowHowTo] = useState(false)
   const [showStats, setShowStats] = useState(false)
+  const [results, setResults] =useState<Response[]>([])
 
   return (
     <>
       <Menu/>
       <Timer/> 
       <button onClick={() => setCount((count) => count - 1)}/>
-      <InputBar/>
+      <InputBar results={results} setResults={setResults} />
       <HealthBar health={count}/>
-      <ResultBar categories={data} />
+      <ResultBar results={results} />
       <HowToIcon setShow={setShowHowTo} />
       <StatsBoxIcon setShow={setShowStats} />
       <Popup show={showStats} setShow={setShowStats} ><StatsBox /></Popup>
@@ -32,6 +33,3 @@ function App() {
 }
 
 export default App
-
-
-const data = [{ text: "Hi", type: "yellow" }, {text: "Hi", type: "down"}, {text: "Hi", type: "red"}, {text: "Hi", type: "green"}, {text: "Hi", type: "up"}]

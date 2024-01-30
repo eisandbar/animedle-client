@@ -1,7 +1,9 @@
 .box {
     /* Size */
-    width: 3em;
-    min-height: 3em;
+    width: 5em;
+    height: 5em;
+    min-width: 5em;
+    min-height: 5em;
     padding: 2px;
     /* Border */
     border-radius: 12px;
@@ -14,7 +16,7 @@
     align-items: center;
     /* Text */
     color: white;
-    font-size: 1.7em;
+    font-size: 1em;
     font-weight: bold;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;

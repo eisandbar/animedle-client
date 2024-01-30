@@ -1,24 +1,31 @@
 import { Box } from "./box"
 
 import '../css/resultBar.css'
+import { ResultRow } from "./resultRow"
 
-type Props = {
-    categories: Response[]
+type BarProps = {
+    results : Response[]
 }
 
-type Response = {
-    type: string
-    text: string
+
+export type Response = {
+    title: Box
+    start_date: Box
+    mean: Box
+    genres: Box
+    media_type: Box
+    num_episodes: Box
+    source: Box
+    average_episode_duration: Box
+    studios: Box
 }
 
-export const ResultBar = ({ categories }: Props) => {
+export const ResultBar = ({ results }: BarProps) => {
     return (
-        <div className="result-bar">{
-            categories.map((res: Response) => {
-                return (
-                    <Box type={res.type}>{res.text}</Box>
-                )
-            })
-        }</div>
+        <div>
+            {results.map((res, id) => {
+                return <ResultRow response={res} key={id}/>
+            })}
+        </div>
     )
 }

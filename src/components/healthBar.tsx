@@ -14,8 +14,8 @@ export const HealthBar = ({ health }: Props) => {
 
     return (
         <div className='health-bar'>
-            {lives.map((alive: boolean) => {
-                return alive ? <div className='heart'></div> : <div className='heart-empty'></div>
+            {lives.map((alive: boolean, id: number) => {
+                return alive ? <div className='heart' key={id}></div> : <div className='heart-empty' key={id}></div>
             })}
         </div>
     )

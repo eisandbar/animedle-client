@@ -1,14 +1,20 @@
 import '../css/box.css'
 
-type Props = {
-    children: React.ReactNode
+
+export type Box = {
     type: string
+    text: string
 }
 
-export const Box = ({ children, type}: Props) => {
+type Props = { 
+    box: Box
+}
+
+export const Box = ({box}: Props) => {
+    console.log(box)
     return (
-        <div className={`box ${type}`}>
-            {children}
+        <div className={`box ${box.type}`}>
+            {box.text}
         </div>
     )
 }
