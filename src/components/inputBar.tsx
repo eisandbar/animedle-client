@@ -5,8 +5,10 @@ import { ChangeEvent, useEffect, useRef, useState } from "react"
 const Delay = 300
 
 type Props = {
+    health : number
     results: Response[]
     setResults: React.Dispatch<React.SetStateAction<Response[]>>
+    setWin: React.Dispatch<React.SetStateAction<number>>
 }
 
 
@@ -26,10 +28,14 @@ export const InputBar = (props: Props) => {
     * Clears form input text
     */ 
     const onSubmit = async () => {
+        if (id == 0 || props.health <= 0) return
         setText("")
         const response = await fetch(`http://localhost:8080/guess?id=${id}`)
         const result: Response = await response.json()
         props.setResults([result, ...props.results])
+        if (result.title.type == "green") { // Win condition
+            props.setWin(1)
+        }
     }
 
     useEffect (() => {
