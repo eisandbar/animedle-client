@@ -11,7 +11,6 @@ type Props = {
 }
 
 export const Box = ({box}: Props) => {
-    console.log(box)
     return (
         <div className={`box ${box.type}`}>
             {box.text}
