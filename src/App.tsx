@@ -19,8 +19,17 @@ function App() {
   const [showHowTo, setShowHowTo] = useState(false) // display HowTo modal
   const [showStats, setShowStats] = useState(false) // display Stats modal
 
+
+  useEffect(() => {
+    const localResults = localStorage.getItem("results")
+    if (localResults != null) {
+      setResults( JSON.parse(localResults))
+    }
+  }, [])
+
   useEffect(() => {
     setHealth(10 - results.length)
+    if (results.length > 0) localStorage.setItem("results", JSON.stringify(results))
   }, [results])
 
   useEffect(() => {
