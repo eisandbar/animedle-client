@@ -1,5 +1,5 @@
 import { Box } from "./box"
-import { Response } from "./resultBar"
+import { Response } from "./resultBox"
 
 type RowProps = {
     response: Response
@@ -10,7 +10,7 @@ export const ResultRow = ({response} : RowProps) => {
         return
     }
     return (
-        <div className="result-bar">
+        <div className="result-row">
             <Box box={response.title}/>
             <Box box={response.start_date}/>
             <Box box={response.mean}/>

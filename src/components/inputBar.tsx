@@ -1,5 +1,5 @@
 import { Button, Form, ListGroup } from "react-bootstrap"
-import { Response } from "./resultBar"
+import { Response } from "./resultBox"
 import { ChangeEvent, useEffect, useRef, useState } from "react"
 
 const Delay = 300

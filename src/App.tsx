@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Popup } from './components/popup'
 import { HowTo, HowToIcon } from './components/howTo'
 import { StatsBox, StatsBoxIcon } from './components/statsBox'
-import { ResultBar, Response } from './components/resultBar'
+import { ResultBox, Response } from './components/resultBox'
 import { HealthBar } from './components/healthBar'
 import { Menu } from './components/menu'
 import { InputBar } from './components/inputBar';
@@ -44,7 +44,7 @@ function App() {
       <Timer/> 
       <InputBar results={results} setResults={setResults} health={health} setWin={setWin}/>
       <HealthBar health={health}/>
-      <ResultBar results={results} />
+      <ResultBox results={results} />
       <HowToIcon setShow={setShowHowTo} />
       <StatsBoxIcon setShow={setShowStats} />
       <Popup show={showStats} setShow={setShowStats} ><StatsBox /></Popup>

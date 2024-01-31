@@ -1,6 +1,3 @@
-import '../css/box.css'
-
-
 export type Box = {
     type: string
     text: string
