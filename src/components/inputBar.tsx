@@ -1,4 +1,3 @@
-import { Button, Form, ListGroup } from "react-bootstrap"
 import { Response } from "./resultBox"
 import { ChangeEvent, useEffect, useRef, useState } from "react"
 
@@ -41,6 +40,8 @@ export const InputBar = (props: Props) => {
     useEffect (() => {
         if (text.length > 1) {
             getAnime(text)
+        } else {
+            setSuggestions([])
         }
     }, [text])
 
@@ -69,15 +70,15 @@ export const InputBar = (props: Props) => {
     }
 
     return (
-        <>
-            <Form.Control type="text" placeholder="Type an anime to begin..." onChange={onChange} value={text} />
-            <Button onClick={onSubmit} />
-            <ListGroup>
+        <div className="input">
+            <input type="text" placeholder="Type an anime to begin..." onChange={onChange} value={text} />
+            <button onClick={onSubmit} >Guess</button>
+            <div className="suggestions">
                 {id == 0 ? suggestions.map((item) => {
                     return <InputSuggestion setId={setId} setText={setText} id={item.id} title={item.title} key={item.id}/>
                 }) : null}
-            </ListGroup>
-        </>
+            </div>
+        </div>
     )
 }
 
@@ -94,7 +95,7 @@ const InputSuggestion = (props: SuggestionProps) => {
         props.setId(props.id)
     }
     return (
-        <ListGroup.Item onClick={onClick}>{props.title}</ListGroup.Item>
+        <li onClick={onClick}>{props.title}</li>
     )
 }
 

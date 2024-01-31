@@ -1,31 +1,25 @@
-import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap"
+import { HowTo, HowToIcon } from './howTo'
+import { StatsBox, StatsBoxIcon } from './statsBox'
+import { Popup } from './popup'
+import { Timer } from "./timer"
+import { useState } from "react"
 
 export const Menu = () => {
+
+    const [showHowTo, setShowHowTo] = useState(false) // display HowTo modal
+    const [showStats, setShowStats] = useState(false) // display Stats modal
+
     return (
 
-        <Navbar className="bg-body-tertiary" expand={false}>
-            <Container>
-                <div>Empty</div>
-                <div className="title"><h2>Animedle</h2></div>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#link">Link</Nav.Link>
-                        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">
-                                Another action
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">
-                                Separated link
-                            </NavDropdown.Item>
-                        </NavDropdown>
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+        <div className='nav'>
+            <div><Timer /></div>
+            <div className="title"><h2>Animedle</h2></div>
+            <div>
+                <HowToIcon setShow={setShowHowTo} />
+                <StatsBoxIcon setShow={setShowStats} />
+            </div>
+            <Popup show={showStats} setShow={setShowStats} ><StatsBox /></Popup>
+            <Popup show={showHowTo} setShow={setShowHowTo}><HowTo /></Popup>
+        </div>
     )
 }

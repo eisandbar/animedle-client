@@ -24,6 +24,6 @@ export const Timer = () => {
 
     const time = date.toISOString().substring(11,19)
     return (
-        <p>{time}</p>
+        <p>Next: {time}</p>
     )
 }
