@@ -1,14 +1,13 @@
+import { Lives } from '../App'
 import '../css/healthBar.css'
 
 type Props = {
     health: number
 }
 
-const MaxHealth = 10
-
 export const HealthBar = ({ health }: Props) => {
-    const lives: boolean[] = Array(MaxHealth).fill(false)
-    for (let i = 0; i < health && i < MaxHealth; i++) {
+    const lives: boolean[] = Array(Lives).fill(false)
+    for (let i = 0; i < health && i < Lives; i++) {
         lives[i] = true
     }
 

@@ -22,18 +22,20 @@ export type Response = {
 
 export const ResultBox = ({ results }: BarProps) => {
     return (
-        <div className="result-box">
-            <CategoryRow />
-            {results.map((res, id) => {
-                return <ResultRow response={res} key={id} />
-            })}
+        <div className="flex container">
+            <div className="result-box">
+                <CategoryRow />
+                {results.map((res, id) => {
+                    return <ResultRow response={res} key={id} />
+                })}
+            </div>
         </div>
     )
 }
 
 const CategoryRow = () => {
     return (
-        <div className="category-row">
+        <div className="flex">
             <p className="category-title">Title</p>
             <p className="category-title">Start date</p>
             <p className="category-title">Average score</p>

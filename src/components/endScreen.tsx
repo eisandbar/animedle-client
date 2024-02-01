@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Lives } from "../App"
 
 type Props = {
     win: number
@@ -27,7 +28,7 @@ export const EndScreen = ({ win, health, updateStats }: Props) => {
                 <button className="close" onClick={onClick}>&times;</button>
                 <div className='popup-body'>
                     {win > 0 ? <p>Win</p> : <p>Lose</p>}
-                    {"Guesses: " + (10 - health)}
+                    {"Guesses: " + (Lives - health)}
                 </div>
             </div>
         </div>

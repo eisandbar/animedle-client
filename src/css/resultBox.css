@@ -10,19 +10,16 @@
     text-shadow:
         0 0 1em black,
         0 0 0.3em black;
-}
 
-.result-row {
     display: flex;
-    justify-content: center;
+    overflow: scroll;
 }
 
-.category-row {
+.flex {
     display: flex;
-    justify-content: center;
 }
 
-.category-title{
+.category-title {
     /* Size */
     width: var(--box-width);
     min-width: var(--box-width);
@@ -45,14 +42,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  
+
 }
 
 .red {
     background-color: red;
 }
 
-.yellow{
+.yellow {
     background-color: yellow;
 }
 
@@ -74,4 +71,17 @@
     background-color: red;
     background-image: url('../assets/upArrow.svg');
     background-size: cover;
+}
+
+.box-mini {
+    /* Display */
+    display: inline-block;
+    /* Size */
+    width: 1em;
+    height: 1em;
+    /* Border */
+    border-radius: 1.2px;
+    border-width: 0.2px;
+    border-color: black;
+    border-style: solid;
 }

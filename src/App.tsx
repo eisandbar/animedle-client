@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './css/App.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './css/bootstrap.css'
 import { ResultBox, Response } from './components/resultBox'
 import { HealthBar } from './components/healthBar'
 import { Menu } from './components/menu'
@@ -8,9 +8,10 @@ import { InputBar } from './components/inputBar';
 import { EndScreen } from './components/endScreen';
 import { Stats } from './components/statsBox';
 
+export const Lives = 10
 function App() {
   const serverTime = useRef(0) // The last time the game updated
-  const [health, setHealth] = useState(10) // we can always get health from results, but this is more convenient
+  const [health, setHealth] = useState(Lives) // we can always get health from results, but this is more convenient
   const [results, setResults] = useState<Response[]>([]) // The results of all our guesses for the current game
   const [stats, setStats] = useState<Stats>({ games: 0, guesses: 0, streak: 0 }) // Player stats
   const [win, setWin] = useState(0) // endScreen display, -1 for a loss, +1 for a win
@@ -32,7 +33,7 @@ function App() {
 
   // Updates health and saves results to localStorage
   useEffect(() => {
-    setHealth(10 - results.length)
+    setHealth(Lives - results.length)
     if (results.length > 0) localStorage.setItem("results", JSON.stringify(results))
   }, [results])
 
@@ -53,7 +54,7 @@ function App() {
     }
     setStats({
       games: stats.games + 1,
-      guesses: stats.guesses + 10 - health,
+      guesses: stats.guesses + Lives - health,
       streak: newStreak
     })
     localStorage.setItem("stats", JSON.stringify(stats))

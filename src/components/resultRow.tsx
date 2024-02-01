@@ -10,7 +10,7 @@ export const ResultRow = ({response} : RowProps) => {
         return
     }
     return (
-        <div className="result-row">
+        <div className="flex">
             <Box box={response.title}/>
             <Box box={response.start_date}/>
             <Box box={response.mean}/>
