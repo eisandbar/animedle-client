@@ -4,7 +4,7 @@ import { ChangeEvent, useEffect, useRef, useState } from "react"
 const Delay = 300
 
 type Props = {
-    health : number
+    health: number
     results: Response[]
     setResults: React.Dispatch<React.SetStateAction<Response[]>>
     setWin: React.Dispatch<React.SetStateAction<number>>
@@ -25,7 +25,7 @@ export const InputBar = (props: Props) => {
     * Sends Get request to the API /guess handle
     * Extends results with the response
     * Clears form input text
-    */ 
+    */
     const onSubmit = async () => {
         if (id == 0 || props.health <= 0) return
         setText("")
@@ -37,7 +37,7 @@ export const InputBar = (props: Props) => {
         }
     }
 
-    useEffect (() => {
+    useEffect(() => {
         if (text.length > 1) {
             getAnime(text)
         } else {
@@ -56,7 +56,7 @@ export const InputBar = (props: Props) => {
     * Called on changes to form input text
     * Sends Get requests to the API /search handle
     * Updates suggestions array to the new result
-    */ 
+    */
     const getAnime = async (query: string): Promise<void> => {
         if (timeoutId.current) {
             clearTimeout(timeoutId.current)
@@ -75,7 +75,7 @@ export const InputBar = (props: Props) => {
             <button onClick={onSubmit} >Guess</button>
             <div className="suggestions">
                 {id == 0 ? suggestions.map((item) => {
-                    return <InputSuggestion setId={setId} setText={setText} id={item.id} title={item.title} key={item.id}/>
+                    return <InputSuggestion setId={setId} setText={setText} id={item.id} title={item.title} key={item.id} />
                 }) : null}
             </div>
         </div>

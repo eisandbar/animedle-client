@@ -3,14 +3,16 @@ import { useEffect, useState } from "react"
 type Props = {
     win: number
     health: number
+    updateStats: () => void
 }
 
-export const EndScreen = ({ win, health }: Props) => {
+export const EndScreen = ({ win, health, updateStats }: Props) => {
     const [show, setShow] = useState(false)
 
     useEffect(() => {
         if (win != 0) {
             setShow(true)
+            updateStats()
         }
     }, [win])
 
