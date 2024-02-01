@@ -29,7 +29,7 @@ export const InputBar = (props: Props) => {
     const onSubmit = async () => {
         if (id == 0 || props.health <= 0) return
         setText("")
-        const response = await fetch(`http://localhost:8080/guess?id=${id}`)
+        const response = await fetch(encodeURI(`http://localhost:8080/guess?id=${id}`))
         const result: Response = await response.json()
         props.setResults([result, ...props.results])
         if (result.title.type == "green") { // Win condition
@@ -63,7 +63,7 @@ export const InputBar = (props: Props) => {
         }
 
         timeoutId.current = setTimeout(async () => {
-            const response = await fetch(`http://localhost:8080/search?q=${query}`)
+            const response = await fetch(encodeURI(`http://localhost:8080/search?q=${query}`))
             const result: Anime[] = await response.json()
             setSuggestions(result)
         }, Delay)
