@@ -20,24 +20,24 @@ export const HowTo = () => {
                 The color of each clue will show you how close you are to guessing the daily anime.
             </p>
             <p>
-                <div className="box-mini red" />
+                <span className="box-mini red" />
                 <span> </span>
                 RED: <b>NONE</b> of the clues match.
             </p>
             <p>
-                <div className="box-mini yellow" />
+                <span className="box-mini yellow" />
                 <span> </span>
                 YELLOW: <b>ONE OR MORE</b> clues are correct, but not all.
             </p>
             <p>
-                <div className="box-mini green" />
+                <span className="box-mini green" />
                 <span> </span>
                 GREEN: <b>ALL</b> of the clues match.
             </p>
             <p>
-                <div className="box-mini up" />
+                <span className="box-mini up" />
                 <span> </span>
-                <div className="box-mini down" />
+                <span className="box-mini down" />
                 <span> </span>
                 Arrows will tell you if the correct answer is below or above your guess.
             </p>

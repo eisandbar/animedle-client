@@ -25,8 +25,8 @@ export const ResultBox = ({ results }: BarProps) => {
         <div className="flex container">
             <div className="result-box">
                 <CategoryRow />
-                {results.map((res, id) => {
-                    return <ResultRow response={res} key={id} />
+                {results.map((res) => {
+                    return <ResultRow response={res} key={res.title.text} />
                 })}
             </div>
         </div>

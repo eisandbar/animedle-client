@@ -1,5 +1,5 @@
 :root {
-    --box-width: 5em
+    --box-width: 7em
 }
 
 .result-box {
@@ -12,6 +12,7 @@
         0 0 0.3em black;
 
     display: flex;
+    flex-direction: column;
     overflow: scroll;
 }
 
@@ -29,9 +30,9 @@
 .box {
     /* Size */
     width: var(--box-width);
-    height: 5em;
+    height: var(--box-width);
     min-width: var(--box-width);
-    min-height: 5em;
+    min-height: var(--box-width);
     padding: 2px;
     /* Border */
     border-radius: 12px;

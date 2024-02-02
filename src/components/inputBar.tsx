@@ -7,11 +7,10 @@ type Props = {
     health: number
     results: Response[]
     setResults: React.Dispatch<React.SetStateAction<Response[]>>
-    setWin: React.Dispatch<React.SetStateAction<number>>
 }
 
 
-export const InputBar = (props: Props) => {
+export const InputBar = ({health, results, setResults}: Props) => {
     /**
     * Comments
     */
@@ -27,14 +26,11 @@ export const InputBar = (props: Props) => {
     * Clears form input text
     */
     const onSubmit = async () => {
-        if (id == 0 || props.health <= 0) return
+        if (id == 0 || health <= 0 || isRepeat()) return
         setText("")
         const response = await fetch(encodeURI(`http://localhost:8080/guess?id=${id}`))
         const result: Response = await response.json()
-        props.setResults([result, ...props.results])
-        if (result.title.type == "green") { // Win condition
-            props.setWin(1)
-        }
+        setResults([result, ...results])
     }
 
     useEffect(() => {
@@ -69,6 +65,15 @@ export const InputBar = (props: Props) => {
         }, Delay)
     }
 
+    const isRepeat = (): boolean => {
+        for (const res of results) {
+            if (res.title.text == text) {
+                return true
+            }
+        }
+        return false
+    }
+
     return (
         <div className="input">
             <input type="text" placeholder="Type an anime to begin..." onChange={onChange} value={text} />
@@ -95,7 +100,7 @@ const InputSuggestion = (props: SuggestionProps) => {
         props.setId(props.id)
     }
     return (
-        <li onClick={onClick}>{props.title}</li>
+        <li className="suggestion" onClick={onClick}>{props.title}</li>
     )
 }
 

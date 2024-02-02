@@ -1,22 +1,13 @@
-import { useEffect, useState } from "react"
 import { Lives } from "../App"
 
 type Props = {
-    win: number
+    win: boolean
     health: number
-    updateStats: () => void
+    show :boolean
+    setShow: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const EndScreen = ({ win, health, updateStats }: Props) => {
-    const [show, setShow] = useState(false)
-
-    useEffect(() => {
-        if (win != 0) {
-            setShow(true)
-            updateStats()
-        }
-    }, [win])
-
+export const EndScreen = ({ win, health, show, setShow }: Props) => {
     const onClick = () => {
         setShow(false)
     }
@@ -27,7 +18,7 @@ export const EndScreen = ({ win, health, updateStats }: Props) => {
             <div className='popup-content'>
                 <button className="close" onClick={onClick}>&times;</button>
                 <div className='popup-body'>
-                    {win > 0 ? <p>Win</p> : <p>Lose</p>}
+                    {win? <p>Win</p> : <p>Lose</p>}
                     {"Guesses: " + (Lives - health)}
                 </div>
             </div>
