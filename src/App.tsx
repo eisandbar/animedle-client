@@ -7,6 +7,7 @@ import { Menu } from './components/menu'
 import { InputBar } from './components/inputBar';
 import { EndScreen } from './components/endScreen';
 import { Stats } from './components/statsBox';
+import { StatsBar } from './components/statsBar'
 
 export const Lives = 10
 function App() {
@@ -123,6 +124,7 @@ function App() {
     <div className='app'>
       <Menu stats={stats} serverTime={serverTime} />
       <InputBar results={results} setResults={setResults} health={health} />
+      <StatsBar/>
       <HealthBar health={health} />
       <ResultBox results={results} />
       <EndScreen win={win.current} health={health} show={showEndScreen} setShow={setShowEndScreen} ></EndScreen>
