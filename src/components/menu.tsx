@@ -17,10 +17,13 @@ export const Menu = ({ stats, serverTime }: Props) => {
     return (
 
         <div className='nav'>
-            <div><Timer serverTime={serverTime} /></div>
+            <div className='fixed-width'>
+                <Timer serverTime={serverTime} />
+            </div>
             <div className="title"><h2>Animedle</h2></div>
-            <div>
+            <div className='fixed-width'>
                 <HowToIcon setShow={setShowHowTo} />
+                <span> </span>
                 <StatsBoxIcon setShow={setShowStats} />
             </div>
             <Popup show={showStats} setShow={setShowStats} ><StatsBox stats={stats} /></Popup>

@@ -20,6 +20,10 @@
     display: flex;
 }
 
+.category-row {
+    padding-top: 1em;
+}
+
 .category-title {
     /* Size */
     width: var(--box-width);

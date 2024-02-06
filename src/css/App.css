@@ -1,10 +1,3 @@
-.title {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
 #root {
   height: 100vh;
   width: 100vw;
@@ -25,7 +18,7 @@
 }
 
 .input {
-  text-align: left;
+  text-align: center;
   margin: auto;
   width: 20em;
   max-width: 20em;
@@ -37,7 +30,8 @@
   max-width: 20em;
   overflow: scroll;
   position: absolute;
-  background-color: white;
+  margin-left: 18px;
+  background-color: rgb(80, 65, 134);
 }
 
 .suggestion:hover {
@@ -50,4 +44,20 @@
   margin-left: auto;
   display: flex;
   justify-content: center;
+}
+
+.fixed-width {
+  width: 20%;
+}
+
+.title {
+  width: 60%;
+}
+
+.stats-bar {
+  margin: 1em;
+}
+
+body {
+  background: #1d1630 ;
 }

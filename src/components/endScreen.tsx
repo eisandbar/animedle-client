@@ -18,7 +18,7 @@ export const EndScreen = ({ win, health, show, setShow }: Props) => {
             <div className='popup-content'>
                 <button className="close" onClick={onClick}>&times;</button>
                 <div className='popup-body'>
-                    {win? <p>Win</p> : <p>Lose</p>}
+                    {win? <p>Congratulations! You won!</p> : <p>Sorry, you lost. Try again next time!</p>}
                     {"Guesses: " + (Lives - health)}
                 </div>
             </div>

@@ -35,7 +35,7 @@ export const ResultBox = ({ results }: BarProps) => {
 
 const CategoryRow = () => {
     return (
-        <div className="flex">
+        <div className="flex category-row">
             <p className="category-title">Title</p>
             <p className="category-title">Start date</p>
             <p className="category-title">Average score</p>
