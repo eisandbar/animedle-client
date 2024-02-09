@@ -21,7 +21,7 @@ export const StatsBox = ({ stats }: BoxProps) => {
                 <b>Games finished: {stats.games}</b>
             </p>
             <p>
-                <b>Average guesses: {(stats.guesses / stats.games).toFixed(1)} </b>
+                <b>Average guesses: {stats.games == 0 ? 0 : (stats.guesses / stats.games).toFixed(1)} </b>
             </p>
             <p>
                 <b>Streak: {stats.streak}</b>
