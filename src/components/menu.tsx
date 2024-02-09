@@ -20,7 +20,7 @@ export const Menu = ({ stats, serverTime }: Props) => {
             <div className='fixed-width'>
                 <Timer serverTime={serverTime} />
             </div>
-            <div className="title"><h2>Animedle</h2></div>
+            <div className="title op-font">Animedle</div>
             <div className='fixed-width'>
                 <HowToIcon setShow={setShowHowTo} />
                 <span> </span>

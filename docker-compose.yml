@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  client:
+    container_name: client
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - /var/www/eisandbar/html:/animedle-client/dist/

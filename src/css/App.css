@@ -52,12 +52,23 @@
 
 .title {
   width: 60%;
+  font-size: 4em;
+  font-weight: 700;
+  font-family: 'one-piece';
 }
 
 .stats-bar {
   margin: 1em;
 }
 
-body {
-  background: #1d1630 ;
+@font-face {
+  font-family: 'one-piece';
+  src: url("../assets/one-piece-font.ttf") format('truetype');
+}
+
+html {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)) ,
+    url(https://i.pinimg.com/originals/54/f6/b6/54f6b6f2ae1a943856acc5d8479a1a9c.jpg) no-repeat 50% fixed;
+  background-size: cover;
 }
