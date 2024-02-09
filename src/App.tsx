@@ -8,6 +8,7 @@ import { InputBar } from './components/inputBar';
 import { EndScreen } from './components/endScreen';
 import { Stats } from './components/statsBox';
 import { StatsBar } from './components/statsBar'
+import { host } from './util/const'
 
 export const Lives = 10
 function App() {
@@ -66,7 +67,7 @@ function App() {
 
     // Sends result of game to server
     const sendResult = () => {
-      fetch("http://localhost:8080/win", {
+      fetch(`${host}/win`, {
         method: "POST",
         body: JSON.stringify({
           win: win.current,
@@ -92,7 +93,7 @@ function App() {
 
   // Updates serverTime
   const getTime = async (): Promise<void> => {
-    const response = await fetch(`http://localhost:8080/time`)
+    const response = await fetch(`${host}/time`)
     const result: string = await response.text()
     serverTime.current = Number(result)
 

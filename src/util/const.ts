@@ -1,0 +1,1 @@
+export const host = "https://server.animedle.eisandbar.xyz"

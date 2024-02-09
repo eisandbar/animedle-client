@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
+import { host } from "../util/const"
 
 export const StatsBar = () => {
     const [stats, setStats] = useState<Stats|undefined>(undefined)
 
     const getStats = async() => {
-        const response = await fetch(encodeURI(`http://localhost:8080/stats`))
+        const response = await fetch(encodeURI(`${host}/stats`))
         const result: Stats = await response.json()
         setStats(result)
     }

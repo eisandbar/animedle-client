@@ -1,3 +1,4 @@
+import { host } from "../util/const"
 import { Response } from "./resultBox"
 import { ChangeEvent, useEffect, useRef, useState } from "react"
 
@@ -28,7 +29,7 @@ export const InputBar = ({health, results, setResults}: Props) => {
     const onSubmit = async () => {
         if (id == 0 || health <= 0 || isRepeat()) return
         setText("")
-        const response = await fetch(encodeURI(`http://localhost:8080/guess?id=${id}`))
+        const response = await fetch(encodeURI(`${host}/guess?id=${id}`))
         const result: Response = await response.json()
         setResults([result, ...results])
     }
@@ -59,7 +60,7 @@ export const InputBar = ({health, results, setResults}: Props) => {
         }
 
         timeoutId.current = setTimeout(async () => {
-            const response = await fetch(encodeURI(`http://localhost:8080/search?q=${query}`))
+            const response = await fetch(encodeURI(`${host}/search?q=${query}`))
             const result: Anime[] = await response.json()
             setSuggestions(result)
         }, Delay)
