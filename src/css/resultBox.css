@@ -13,8 +13,14 @@
 
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    overflow-x: scroll;
+    /* invisible scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
+.result-box::-webkit-scrollbar {
+    display: none;
+  }
 
 .flex {
     display: flex;
@@ -62,7 +68,7 @@
     background-color: green;
 }
 
-.grey {
+.gray {
     background-color: rgb(90, 90, 109);
 }
 
